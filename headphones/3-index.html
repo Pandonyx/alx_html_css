@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Headphones</title>
+
+  <!-- Task 3 styles -->
+  <link rel="stylesheet" href="3-styles.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="public/assets/FIcons/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true" />
+      <label for="nav-toggle" class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <a class="logo" href="/" aria-label="Headphones home">
+        <img src="public/assets/images/logo_headphones.png" alt="Headphones logo" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="#what">what we do</a>
+        <a class="nav-link" href="#results">our results</a>
+        <a class="nav-link" href="#contact">contact us</a>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <div class="container hero-content">
+        <h1 class="hero-title">Lorem ipsum dolor set amet<br />lorem ipsum</h1>
+        <p class="hero-subtitle">Lorem ipsum dolor set amet lorem ipsum dolor set</p>
+        <button class="btn">CALL TO ACTION</button>
+        <p class="hero-note">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- WHAT WE DO -->
+    <section id="what" class="section what-we-do">
+      <div class="container">
+        <h2 class="section-title">What we do…</h2>
+        <p class="section-desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+
+        <div class="features">
+          <div class="feature">
+            <span class="holberton_school-icon-ic_sound icon" aria-hidden="true"></span>
+            <h3 class="feature-title">Lorem ipsum</h3>
+            <p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="feature">
+            <span class="holberton_school-icon-ic_video icon" aria-hidden="true"></span>
+            <h3 class="feature-title">Lorem ipsum</h3>
+            <p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="feature">
+            <span class="holberton_school-icon-ic_music icon" aria-hidden="true"></span>
+            <h3 class="feature-title">Lorem ipsum</h3>
+            <p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="feature">
+            <span class="holberton_school-icon-ic_hearing icon" aria-hidden="true"></span>
+            <h3 class="feature-title">Lorem ipsum</h3>
+            <p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR RESULTS -->
+    <section id="results" class="section results">
+      <div class="container">
+        <h2 class="section-title section-title--light">Our results</h2>
+        <p class="section-desc section-desc--light">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        </p>
+
+        <div class="badges">
+          <div class="badge"><img src="public/assets/images/pentagone.png" alt="" /><span>+2%</span></div>
+          <div class="badge"><img src="public/assets/images/pentagone.png" alt="" /><span>+2%</span></div>
+          <div class="badge"><img src="public/assets/images/pentagone.png" alt="" /><span>+2%</span></div>
+          <div class="badge"><img src="public/assets/images/pentagone.png" alt="" /><span>+2%</span></div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT US -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title">Contact us</h2>
+        <p class="section-desc">Questions, feedback, or press? Drop us a line.</p>
+
+        <form class="form" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              inputmode="text"
+              placeholder="Jane Doe"
+              required
+              minlength="2"
+              maxlength="60"
+              pattern="^[A-Za-zÀ-ÿ ,.'-]+$"
+              aria-describedby="nameHelp"
+            />
+            <small id="nameHelp" class="hint">Letters, spaces, and ‘- . ’ allowed</small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              inputmode="email"
+              placeholder="user.mail@example.com"
+              required
+              maxlength="254"
+            />
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Tell us a bit more…"
+              required
+              minlength="10"
+              maxlength="1000"
+            ></textarea>
+            <small class="hint">Min 10 characters</small>
+          </div>
+
+          <button class="btn btn-submit" type="submit">SEND MESSAGE</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

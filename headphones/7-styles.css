@@ -1,0 +1,258 @@
+/* ===== RESET & BASE (same foundation) ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+img { display: block; max-width: 100%; }
+
+body {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #fff;
+}
+
+/* ===== VARIABLES ===== */
+:root{
+  --accent:#ff6565;
+  --dark:#071629;
+  --light:#ffffff;
+  --max-width:1000px;
+
+  --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px;
+  --shadow-lg:0 22px 60px rgba(0,0,0,.32);
+  --shadow-cta:0 12px 28px rgba(0,0,0,.35);
+}
+
+/* ===== HEADER / HERO (unchanged from your 2-styles) ===== */
+.site-header{
+  background:
+    linear-gradient(180deg, rgba(7,22,41,.6) 0%, rgba(7,22,41,.9) 70%),
+    url("public/assets/images/headphones_hero_1.jpg") center/cover no-repeat;
+}
+.container{max-width:var(--max-width);margin-inline:auto;padding-inline:var(--s4)}
+.header-bar{display:flex;align-items:center;justify-content:center;position:relative;padding:1rem}
+.logo img{height:32px}
+.nav-toggle{position:absolute;opacity:0;pointer-events:none}
+.hamburger{position:absolute;left:1rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer}
+.hamburger span{width:24px;height:2px;background-color:var(--light);transition:transform .3s,opacity .3s}
+.nav{position:fixed;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem;background:rgba(7,22,41,.96)}
+.nav-link{color:var(--light);text-decoration:none;font-weight:700;font-size:1.125rem;transition:color .2s}
+.nav-link:hover,.nav-link:active{color:var(--accent)}
+.nav-toggle:checked ~ .nav{display:flex}
+.nav-toggle:checked + .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle:checked + .hamburger span:nth-child(2){opacity:0}
+.nav-toggle:checked + .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.hero{text-align:center;padding:4.5rem 1rem 5rem}
+.hero-content{max-width:720px;margin:0 auto}
+.hero-title{font-size:2rem;font-weight:700;margin-bottom:.75rem;text-shadow:0 2px 6px rgba(0,0,0,.35)}
+.hero-subtitle{font-size:.95rem;font-weight:600;margin-bottom:1.5rem;opacity:.95}
+.btn{background:var(--accent);color:var(--light);border:0;border-radius:2rem;padding:.9rem 2rem;font-weight:800;cursor:pointer;transition:opacity .2s, transform .15s}
+.btn:hover,.btn:active{opacity:.9}
+.btn:active{transform:translateY(1px)}
+.hero-note{margin-top:2rem;font-size:.95rem;opacity:.92}
+
+/* ===== WHAT WE DO ===== */
+.section{padding:4rem 1rem;text-align:center}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:1rem;color:var(--dark)}
+.section-desc{font-size:1rem;max-width:600px;margin:0 auto 3rem;color:var(--dark)}
+
+.features{display:grid;grid-template-columns:1fr;gap:2rem}
+.feature{display:flex;flex-direction:column;align-items:center}
+.icon{font-size:4rem;color:var(--accent);margin-bottom:1rem}
+.feature-title{font-size:1.25rem;font-weight:700;margin-bottom:.5rem;color:var(--dark)}
+.feature-text{font-size:.95rem;color:var(--dark);max-width:260px}
+
+/* ===== OUR RESULTS ===== */
+.results{
+  background:
+    linear-gradient(180deg, rgba(7,22,41,0.6) 0%, rgba(7,22,41,0.9) 70%),
+    url("public/assets/images/headphones_hero_2.jpg") center/cover no-repeat;
+  color:var(--light);
+}
+.section-title--light{color:var(--light)}
+.section-desc--light{color:#c7d1e0}
+
+.pentagon  {
+  width: 92px;
+  height: 88px;
+  background-color: var(--accent);
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .35);
+}
+
+.badges{display:grid;grid-template-columns:1fr;gap:22px;justify-items:center;margin-top:22px}
+.badge{position:relative;width:92px;height:88px;display:grid;place-items:center}
+
+.badge span{position:absolute;color:#fff;font-weight:800;font-size:14px}
+
+/* ===== CONTACT US ===== */
+.contact .section-title{color:var(--dark)}
+.contact .section-desc{color:var(--dark)}
+
+.form{
+  max-width:520px;
+  margin:0 auto;
+  display:grid;
+  gap:16px;
+  animation: formFade .6s ease both;
+}
+
+.field{display:grid;gap:6px;text-align:left}
+.field label{color:var(--dark);font-weight:700}
+.field .hint{color:#6b7a90;font-size:.83rem}
+
+input[type="text"],
+input[type="email"],
+textarea{
+  width:100%;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  color:#111;
+  border-radius:10px;
+  padding:12px 14px;
+  transition:border-color .15s, box-shadow .15s, transform .12s ease-out;
+}
+
+textarea{resize:vertical;min-height:120px}
+
+/* focus/valid/invalid states */
+input:focus-visible,
+textarea:focus-visible{
+  outline:none;
+  border-color: transparent;
+  box-shadow:0 0 0 2px var(--accent);
+  transform:translateY(-1px);
+}
+
+input:invalid:focus-visible,
+textarea:invalid:focus-visible{
+  box-shadow:0 0 0 2px #ff3b30;
+}
+
+input:valid,
+textarea:valid{
+  border-color:#c6f6d5;
+}
+
+/* submit button animation */
+.btn-submit{
+  justify-self:center;
+  padding:.95rem 2.2rem;
+  border-radius:28px;
+  box-shadow:var(--shadow-cta);
+  will-change:transform;
+}
+.btn-submit:hover{transform:translateY(-1px)}
+.btn-submit:active{transform:translateY(0)}
+
+/* enter animation */
+@keyframes formFade{
+  from{opacity:0; transform:translateY(6px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .btn, .btn-submit, input, textarea { transition: none; }
+  .form { animation: none; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 481px){
+  .header-bar{justify-content:space-between;padding:1.5rem 2rem}
+  .hamburger{display:none}
+  .nav{position:static;display:flex;flex-direction:row;gap:2rem;background:none}
+  .nav-link{font-size:1rem}
+  .hero{padding:6rem 1rem 7.5rem}
+  .hero-title{font-size:3.5rem}
+}
+
+@media (min-width: 768px){
+  .features{grid-template-columns:repeat(4,1fr)}
+  .badges{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.site-footer {
+  background-color: var(--dark);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-logo img {
+  height: 40px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  color: var(--light);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover,
+.social-link:focus {
+  color: var(--accent);
+}
+
+.footer-copy {
+  color: #c7d1e0;
+  font-size: 0.875rem;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+/* ===== ANIMATIONS for Task 7 ===== */
+
+.feature {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.feature:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.badge {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.badge:hover {
+  transform: rotate(5deg) scale(1.08);
+  opacity: 0.95;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+.feature.always-animate,
+.badge.always-animate {
+  animation: float 3s ease-in-out infinite;
+}
