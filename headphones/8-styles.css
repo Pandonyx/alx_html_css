@@ -1,18 +1,13 @@
-/* ================================
-   RESET & BASE
-=================================== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
 }
-body.menu-open { overflow: hidden; }
 
 img {
   display: block;
@@ -26,32 +21,22 @@ body {
   color: #fff;
 }
 
-/* ================================
-   VARIABLES
-=================================== */
 :root {
   --accent: #ff6565;
   --dark: #071629;
   --light: #ffffff;
   --max-width: 1000px;
-
   --s2: 8px;
   --s3: 12px;
   --s4: 16px;
   --s6: 24px;
   --s8: 32px;
-
-  --shadow-lg: 0 22px 60px rgba(0, 0, 0, 0.32);
-  --shadow-cta: 0 12px 28px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 22px 60px rgba(0,0,0,.32);
+  --shadow-cta: 0 12px 28px rgba(0,0,0,.35);
 }
 
-/* ================================
-   HEADER / HERO
-=================================== */
 .site-header {
-  background:
-    linear-gradient(180deg, rgba(7, 22, 41, 0.6) 0%, rgba(7, 22, 41, 0.9) 70%),
-    url("public/assets/images/headphones_hero_1.jpg") center/cover no-repeat;
+  background: linear-gradient(180deg, rgba(7,22,41,.6) 0%, rgba(7,22,41,.9) 70%), url("public/assets/images/headphones_hero_1.jpg") center/cover no-repeat;
 }
 
 .container {
@@ -72,27 +57,37 @@ body {
   height: 32px;
 }
 
-/* Hamburger (mobile) */
 .hamburger {
   position: absolute;
-  left: 1rem;
+  left: 8px;
   top: 50%;
   transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  width: 44px;
+  height: 44px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
   cursor: pointer;
+  z-index: 1100;
 }
 
 .hamburger span {
   width: 24px;
   height: 2px;
   background-color: var(--light);
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform .3s, opacity .3s;
 }
 
-/* Navigation */
+.hamburger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
 .nav {
   position: fixed;
   inset: 0;
@@ -101,7 +96,28 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  background: rgba(7, 22, 41, 0.96);
+  background: rgba(7,22,41,.96);
+  z-index: 1000;
+}
+
+.nav.open {
+  display: flex;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav-link {
@@ -109,7 +125,7 @@ body {
   text-decoration: none;
   font-weight: 700;
   font-size: 1.125rem;
-  transition: color 0.2s;
+  transition: color .2s;
 }
 
 .nav-link:hover,
@@ -117,24 +133,6 @@ body {
   color: var(--accent);
 }
 
-/* Checkbox hack (for older versions) */
-.nav-toggle:checked ~ .nav {
-  display: flex;
-}
-
-.nav-toggle:checked + .hamburger span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.nav-toggle:checked + .hamburger span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle:checked + .hamburger span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Hero Section */
 .hero {
   text-align: center;
   padding: 4.5rem 1rem 5rem;
@@ -148,15 +146,15 @@ body {
 .hero-title {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  margin-bottom: .75rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,.35);
 }
 
 .hero-subtitle {
-  font-size: 0.95rem;
+  font-size: .95rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  opacity: 0.95;
+  opacity: .95;
 }
 
 .btn {
@@ -164,15 +162,15 @@ body {
   color: var(--light);
   border: 0;
   border-radius: 2rem;
-  padding: 0.9rem 2rem;
+  padding: .9rem 2rem;
   font-weight: 800;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.15s;
+  transition: opacity .2s, transform .15s;
 }
 
 .btn:hover,
 .btn:active {
-  opacity: 0.9;
+  opacity: .9;
 }
 
 .btn:active {
@@ -181,13 +179,10 @@ body {
 
 .hero-note {
   margin-top: 2rem;
-  font-size: 0.95rem;
-  opacity: 0.92;
+  font-size: .95rem;
+  opacity: .92;
 }
 
-/* ================================
-   WHAT WE DO
-=================================== */
 .section {
   padding: 4rem 1rem;
   text-align: center;
@@ -228,23 +223,18 @@ body {
 .feature-title {
   font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   color: var(--dark);
 }
 
 .feature-text {
-  font-size: 0.95rem;
+  font-size: .95rem;
   color: var(--dark);
   max-width: 260px;
 }
 
-/* ================================
-   OUR RESULTS
-=================================== */
 .results {
-  background:
-    linear-gradient(180deg, rgba(7, 22, 41, 0.6) 0%, rgba(7, 22, 41, 0.9) 70%),
-    url("public/assets/images/headphones_hero_2.jpg") center/cover no-repeat;
+  background: linear-gradient(180deg, rgba(7,22,41,0.6) 0%, rgba(7,22,41,0.9) 70%), url("public/assets/images/headphones_hero_2.jpg") center/cover no-repeat;
   color: var(--light);
 }
 
@@ -261,7 +251,7 @@ body {
   height: 88px;
   background-color: var(--accent);
   clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .35);
 }
 
 .badges {
@@ -287,9 +277,6 @@ body {
   font-size: 14px;
 }
 
-/* ================================
-   CONTACT US
-=================================== */
 .contact .section-title {
   color: var(--dark);
 }
@@ -303,7 +290,7 @@ body {
   margin: 0 auto;
   display: grid;
   gap: 16px;
-  animation: formFade 0.6s ease both;
+  animation: formFade .6s ease both;
 }
 
 .field {
@@ -319,7 +306,7 @@ body {
 
 .field .hint {
   color: #6b7a90;
-  font-size: 0.83rem;
+  font-size: .83rem;
 }
 
 input[type="text"],
@@ -331,7 +318,7 @@ textarea {
   color: #111;
   border-radius: 10px;
   padding: 12px 14px;
-  transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s ease-out;
+  transition: border-color .15s, box-shadow .15s, transform .12s ease-out;
 }
 
 textarea {
@@ -339,7 +326,6 @@ textarea {
   min-height: 120px;
 }
 
-/* Focus/valid/invalid states */
 input:focus-visible,
 textarea:focus-visible {
   outline: none;
@@ -358,10 +344,9 @@ textarea:valid {
   border-color: #c6f6d5;
 }
 
-/* Submit button animation */
 .btn-submit {
   justify-self: center;
-  padding: 0.95rem 2.2rem;
+  padding: .95rem 2.2rem;
   border-radius: 28px;
   box-shadow: var(--shadow-cta);
   will-change: transform;
@@ -375,34 +360,16 @@ textarea:valid {
   transform: translateY(0);
 }
 
-/* Form enter animation */
 @keyframes formFade {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .btn,
-  .btn-submit,
-  input,
-  textarea {
-    transition: none;
-  }
-  .form {
-    animation: none;
-  }
+  .btn, .btn-submit, input, textarea { transition: none; }
+  .form { animation: none; }
 }
 
-/* ================================
-   RESPONSIVE
-=================================== */
 @media (min-width: 481px) {
   .header-bar {
     justify-content: space-between;
@@ -417,6 +384,7 @@ textarea:valid {
     flex-direction: row;
     gap: 2rem;
     background: none;
+    z-index: auto;
   }
   .nav-link {
     font-size: 1rem;
@@ -431,16 +399,13 @@ textarea:valid {
 
 @media (min-width: 768px) {
   .features {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
   }
   .badges {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4,minmax(0,1fr));
   }
 }
 
-/* ================================
-   FOOTER
-=================================== */
 .site-footer {
   background-color: var(--dark);
   padding: 2rem 1rem;
@@ -479,7 +444,6 @@ textarea:valid {
   font-size: 0.875rem;
 }
 
-/* Footer larger screens */
 @media (min-width: 768px) {
   .footer-content {
     flex-direction: row;
@@ -487,9 +451,6 @@ textarea:valid {
   }
 }
 
-/* ================================
-   ANIMATIONS (Task 7)
-=================================== */
 .feature {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -509,15 +470,9 @@ textarea:valid {
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
 }
 
 .feature.always-animate,
